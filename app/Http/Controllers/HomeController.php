@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Auth;
 use App\Course;
 use App\BlogTag;
@@ -14,10 +15,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    //    public function __construct()
+    //    {
+    //        $this->middleware('auth');
+    //    }
 
     /**
      * Show the application dashboard.
@@ -28,17 +29,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function contributor_dashboard(){
-        $id=Auth::user()->id;
-        $posts_count=BlogPost::where("user_id",$id)->count();
-        $tags_count=BlogTag::all()->count();
-        $course_count=Course::where('contributor_id',$id)->count();
+    public function contributor_dashboard()
+    {
+        $id = Auth::user()->id;
+        $posts_count = BlogPost::where("user_id", $id)->count();
+        $tags_count = BlogTag::all()->count();
+        $course_count = Course::where('contributor_id', $id)->count();
 
 
-        return view('contributor.contributor_dashboard',compact('posts_count','tags_count','course_count'));
+        return view('contributor.contributor_dashboard', compact('posts_count', 'tags_count', 'course_count'));
     }
-    public function landing(){
-        $top_courses=Course::orderBy('student_count', 'DESC')->take(10)->get();
-        return view('welcome',compact('top_courses'));
+    public function landing()
+    {
+        $top_courses = Course::orderBy('student_count', 'DESC')->take(10)->get();
+        return view('welcome', compact('top_courses'));
     }
 }
