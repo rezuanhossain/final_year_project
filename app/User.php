@@ -1,12 +1,13 @@
 <?php
 
 namespace App;
+use App\StudentProfile;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','type'
     ];
 
     /**
@@ -36,4 +37,35 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function student_profile()
+    {
+        return $this->hasOne(StudentProfile::class,'user_id','id');
+    }
+    public function contributor_profile()
+    {
+        return $this->hasOne('App\ContributorProfile');
+    }
+    public function admin_profile()
+    {
+        return $this->hasOne('App\AdminProfile');
+    }
+    public function post()
+    {
+        return $this->hasMany('App\BlogPost');
+    }
+    public function comment()
+    {
+        return $this->hasMany('App\BlogComment');
+    }
+    public function course(){
+        return $this->hasMany('App\Course');
+    }
+    public function questions(){
+        return $this->hasMany('App\Question');
+    }
+    public function answers(){
+        return $this->hasMany('App\Answer');
+    }
 }
