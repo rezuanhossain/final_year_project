@@ -49,7 +49,7 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ route('courses') }}">Courses</a></li>
                 <li><a href="trainers.html">Trainers</a></li>
                 <li><a href="events.html">Events</a></li>
