@@ -50,7 +50,7 @@
             <ul>
                 <li class="active"><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
+                <li><a href="{{ route('courses') }}">Courses</a></li>
                 <li><a href="trainers.html">Trainers</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
@@ -80,15 +80,6 @@
 
     </div>
 </header><!-- End Header -->
-
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex justify-content-center align-items-center">
-    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-        <h1>Learning Today,<br>Leading Tomorrow</h1>
-        <h2>We are team of talanted designers making websites with Bootstrap</h2>
-        <a href="courses.html" class="btn-get-started">Get Started</a>
-    </div>
-</section><!-- End Hero -->
 
 <div id="app1">
     @yield('content')
