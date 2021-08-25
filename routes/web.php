@@ -150,3 +150,7 @@ Route::get('/contributor_dashboard', 'HomeController@contributor_dashboard')->na
 Route::get('/student-dashboard', 'StudentProfileController@index')->name('student.dashboard');
 Route::get('/courses', 'CourseController@index')->name('courses.view');
 Route::get('/course-enroll/{course_id}', 'StudentProfileController@enroll_course')->name('course.enroll');
+
+//Student Interest Survey 
+
+route::get('/interest-survey', 'InterestSurveyController@index');

@@ -14,7 +14,7 @@ class InterestSurveyController extends Controller
      */
     public function index()
     {
-        //
+        return view('survey.interestSurvey');
     }
 
     /**
