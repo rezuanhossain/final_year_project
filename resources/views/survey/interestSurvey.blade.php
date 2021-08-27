@@ -2,6 +2,6 @@
 
 <div class="container">
     <div id="app1">
-        <interest-survey></interest-survey>
+        <interest-survey :categories="{{ $categories }}"></interest-survey>
     </div>
 </div>

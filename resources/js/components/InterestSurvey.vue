@@ -28,3 +28,28 @@
         </div>
     </div>
 </template>
+
+<script>
+
+export default {
+    props: {
+        categories: ""
+    },
+    data: () => ({
+
+    }),
+    watch: {
+        category: function(newCategory, oldCategory) {
+            this.processString(newCategory);
+        }
+    },
+
+    created() {
+        this.fetchTags();
+    },
+
+    methods: {
+
+    }
+};
+</script>

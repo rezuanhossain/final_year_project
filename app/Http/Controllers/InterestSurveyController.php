@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\InterestSurvey;
+use App\Category;
 use Illuminate\Http\Request;
 
 class InterestSurveyController extends Controller
@@ -14,7 +15,10 @@ class InterestSurveyController extends Controller
      */
     public function index()
     {
-        return view('survey.interestSurvey');
+        $categories = Category::all();
+
+        return view('survey.interestSurvey', compact('categories'));
+
     }
 
     /**

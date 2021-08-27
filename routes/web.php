@@ -154,3 +154,4 @@ Route::get('/course-enroll/{course_id}', 'StudentProfileController@enroll_course
 //Student Interest Survey 
 
 route::get('/interest-survey', 'InterestSurveyController@index');
+route::get('/get-', 'InterestSurveyController@index');
