@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <div id="app1" class="align-middle">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Launch demo modal
-            </button>
+            </button> -->
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -24,6 +24,14 @@
                 </div>
                 </div>
             </div>
+            </div>
+        </div>
+        <br>
+        <div class="card w-50 d-flex flex-row" >
+            <div class="card-body" v-for="(category,index) in categories" :key="index">
+                <h5 class="card-title">{{category.name}}</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Button</a>
             </div>
         </div>
     </div>
