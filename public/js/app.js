@@ -3992,7 +3992,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      category_id: []
+      category_id: [],
+      selected_sub_categories: []
     };
   },
   watch: {
@@ -4008,8 +4009,14 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       console.log(this.category_id);
+      this.processSubCategory(this.sub_categories);
     },
-    processSubCategory: function processSubCategory() {}
+    processSubCategory: function processSubCategory(sub_categories) {
+      if (sub_categories.category_id == this.category_id) {
+        console.log(sub_categories.category_id);
+        this.selected_sub_categories = sub_categories.category_id;
+      }
+    }
   }
 });
 

@@ -48,10 +48,11 @@
 export default {
     props: {
         categories: "",
-        sub_categories:""
+        sub_categories: ""
     },
     data: () => ({
         category_id:[],
+        selected_sub_categories:[],
     }),
     watch: {
         category: function(newCategory, oldCategory) {
@@ -70,11 +71,15 @@ export default {
                 this.category_id.push(category.id);
             }
             console.log(this.category_id);
+            this.processSubCategory(this.sub_categories);
 
         },
 
-        processSubCategory() {
-            
+        processSubCategory(sub_categories) {
+            if(sub_categories.category_id==this.category_id){
+                console.log(sub_categories.category_id);
+                this.selected_sub_categories=sub_categories.category_id;
+            }
         },
     }
 };
