@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\InterestSurvey;
 use App\Category;
 use App\SubCategory;
 use Illuminate\Http\Request;
 
-class InterestSurveyController extends Controller
+class SubCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +15,14 @@ class InterestSurveyController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        $sub_categories = SubCategory::all();
-        // dd($sub_categories);
+        $subCategories=SubCategory::all();
+     return response($subCategories);
 
-        return view('survey.interestSurvey', compact('categories','sub_categories'));
-
+    }
+    public function find_sub($id){
+        $data=SubCategory::where('category_id',$id)->get();
+        return response($data);
+        
     }
 
     /**
@@ -48,10 +49,10 @@ class InterestSurveyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\InterestSurvey  $interestSurvey
+     * @param  \App\SubCategory  $subCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(InterestSurvey $interestSurvey)
+    public function show(SubCategory $subCategory)
     {
         //
     }
@@ -59,10 +60,10 @@ class InterestSurveyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\InterestSurvey  $interestSurvey
+     * @param  \App\SubCategory  $subCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(InterestSurvey $interestSurvey)
+    public function edit(SubCategory $subCategory)
     {
         //
     }
@@ -71,10 +72,10 @@ class InterestSurveyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\InterestSurvey  $interestSurvey
+     * @param  \App\SubCategory  $subCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, InterestSurvey $interestSurvey)
+    public function update(Request $request, SubCategory $subCategory)
     {
         //
     }
@@ -82,10 +83,10 @@ class InterestSurveyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\InterestSurvey  $interestSurvey
+     * @param  \App\SubCategory  $subCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InterestSurvey $interestSurvey)
+    public function destroy(SubCategory $subCategory)
     {
         //
     }

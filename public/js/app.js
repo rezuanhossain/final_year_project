@@ -3979,22 +3979,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    categories: ""
+    categories: "",
+    sub_categories: ""
   },
   data: function data() {
-    return {};
+    return {
+      category_id: []
+    };
   },
   watch: {
     category: function category(newCategory, oldCategory) {
       this.processString(newCategory);
     }
   },
-  created: function created() {
-    this.fetchTags();
-  },
-  methods: {}
+  created: function created() {},
+  methods: {
+    getCategoryId: function getCategoryId(category) {
+      if (!this.category_id.includes(category.id)) {
+        this.category_id.push(category.id);
+      }
+
+      console.log(this.category_id);
+    },
+    processSubCategory: function processSubCategory() {}
+  }
 });
 
 /***/ }),
@@ -64829,26 +64845,42 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "card w-50 d-flex flex-row" },
+      { staticClass: "card d-flex flex-row" },
       _vm._l(_vm.categories, function(category, index) {
-        return _c("div", { key: index, staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
-            _vm._v(_vm._s(category.name))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "With supporting text below as a natural lead-in to additional content."
-            )
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-            _vm._v("Button")
-          ])
-        ])
+        return _c(
+          "div",
+          {
+            key: index,
+            staticClass: "card-body",
+            on: {
+              click: function($event) {
+                return _vm.getCategoryId(category)
+              }
+            }
+          },
+          [
+            _c("h5", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(category.name))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _vm._v(
+                "With supporting text below as a natural lead-in to additional content."
+              )
+            ]),
+            _vm._v(" "),
+            _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+              _vm._v("Button")
+            ])
+          ]
+        )
       }),
       0
-    )
+    ),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" })
   ])
 }
 var staticRenderFns = [

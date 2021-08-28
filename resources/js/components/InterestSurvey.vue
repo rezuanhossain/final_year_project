@@ -27,24 +27,31 @@
             </div>
         </div>
         <br>
-        <div class="card w-50 d-flex flex-row" >
-            <div class="card-body" v-for="(category,index) in categories" :key="index">
+        <div class="card d-flex flex-row">
+            <div class="card-body" @click="getCategoryId(category)" v-for="(category,index) in categories" :key="index">
                 <h5 class="card-title">{{category.name}}</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <a href="#" class="btn btn-primary">Button</a>
             </div>
         </div>
+        <hr>
+
+        <div class="card">
+
+        </div>
     </div>
+    
 </template>
 
 <script>
 
 export default {
     props: {
-        categories: ""
+        categories: "",
+        sub_categories:""
     },
     data: () => ({
-
+        category_id:[],
     }),
     watch: {
         category: function(newCategory, oldCategory) {
@@ -53,11 +60,22 @@ export default {
     },
 
     created() {
-        this.fetchTags();
+        
     },
 
     methods: {
 
+        getCategoryId(category){
+            if(!this.category_id.includes(category.id)){
+                this.category_id.push(category.id);
+            }
+            console.log(this.category_id);
+
+        },
+
+        processSubCategory() {
+            
+        },
     }
 };
 </script>
