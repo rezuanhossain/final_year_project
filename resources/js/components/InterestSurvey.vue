@@ -75,12 +75,6 @@ export default {
 
         },
 
-        processSubCategory(sub_categories) {
-            if(sub_categories.category_id==this.category_id){
-                console.log(sub_categories.category_id);
-                this.selected_sub_categories=sub_categories.category_id;
-            }
-        },
     }
 };
 </script>
