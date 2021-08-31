@@ -3993,7 +3993,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       category_id: [],
-      selected_sub_categories: []
+      sub_categories: []
     };
   },
   watch: {
@@ -4009,13 +4009,16 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       console.log(this.category_id);
-      this.processSubCategory(this.sub_categories);
     },
-    processSubCategory: function processSubCategory(sub_categories) {
-      if (sub_categories.category_id == this.category_id) {
-        console.log(sub_categories.category_id);
-        this.selected_sub_categories = sub_categories.category_id;
-      }
+    processString: function processString(category) {
+      var _this = this;
+
+      this.category_id = parseInt(category.split(".", 1)[0]);
+      axios.get("/get-selected-sub-categories/".concat(this.category_id)).then(function (res) {
+        _this.sub_categories = res.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   }
 });

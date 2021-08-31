@@ -155,3 +155,5 @@ Route::get('/course-enroll/{course_id}', 'StudentProfileController@enroll_course
 
 route::get('/interest-survey', 'InterestSurveyController@index');
 route::get('/get-', 'InterestSurveyController@index');
+Route::get('/get-selected-sub-categories/{id}', 'InterestSurveyController@find_sub')->name('find.fetch_sub_category');
+
