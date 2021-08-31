@@ -71,14 +71,17 @@ export default {
                 this.category_id.push(category.id);
             }
             console.log(this.category_id);
+            this.processString(category_id);
 
         },
 
         processString(category) {
-            this.category_id = parseInt(category.split(".", 1)[0]);
+            // let category_id = category.id;
+            // console.log(category_id);
             axios
-                .get(`/get-selected-sub-categories/${this.category_id}`)
+                .get(`/get-selected-sub-categories/${category}`)
                 .then(res => {
+                    console.log(res.data);
                     this.sub_categories = res.data;
                 })
                 .catch(err => {

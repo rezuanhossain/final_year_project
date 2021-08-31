@@ -4009,12 +4009,15 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       console.log(this.category_id);
+      this.processString(category_id);
     },
     processString: function processString(category) {
       var _this = this;
 
-      this.category_id = parseInt(category.split(".", 1)[0]);
-      axios.get("/get-selected-sub-categories/".concat(this.category_id)).then(function (res) {
+      // let category_id = category.id;
+      // console.log(category_id);
+      axios.get("/get-selected-sub-categories/".concat(category)).then(function (res) {
+        console.log(res.data);
         _this.sub_categories = res.data;
       })["catch"](function (err) {
         console.log(err);
