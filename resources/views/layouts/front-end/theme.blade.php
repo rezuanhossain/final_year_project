@@ -98,11 +98,10 @@
                 <div class="col-lg-3 col-md-6 footer-contact">
                     <h3>Mentor</h3>
                     <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
-                        United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        Mirpur-1, Dhaka <br>
+                        Bangladesh <br><br>
+                        <strong>Phone:</strong> +8801303548378<br>
+                        <strong>Email:</strong> rezuanhossain@gmail.com<br>
                     </p>
                 </div>
 
@@ -128,13 +127,13 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-4 col-md-6 footer-newsletter">
+                <!-- <div class="col-lg-4 col-md-6 footer-newsletter">
                     <h4>Join Our Newsletter</h4>
                     <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
                     <form action="" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
                     </form>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -151,7 +150,7 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a>Rezuan Hossain</a>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">

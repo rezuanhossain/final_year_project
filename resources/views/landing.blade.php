@@ -19,7 +19,7 @@
 
             <div class="section-title">
                 <h2>About</h2>
-                <p>About Us</p>
+                <p>About System</p>
             </div>
 
             <div class="row">
@@ -27,20 +27,22 @@
                     <img src="assets/img/about.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                    <h3>A Web Based Interactive Educational System for Learning Web Development .</h3>
                     <p class="font-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                    Online Education has played an important role in the field of education. It is a great blessing of modern
+technology. In present world, online education has become the most popular choice of the students in higher
+education degree program. Many of the universities in the world have offered their higher studies program
+through the online education system where any student from any place of the world can achieve their higher
+studies via the internet.
                     </p>
                     <ul>
-                        <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                        <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                        <li><i class="icofont-check-circled"></i> To create an open source educational community for university Students.</li>
+                        <li><i class="icofont-check-circled"></i> To make an independent and self-directed learning.</li>
+                        <li><i class="icofont-check-circled"></i> To make education much easier and closer to everybody.</li>
+                        <li><i class="icofont-check-circled"></i> To promote self-learning..</li>
                     </ul>
-                    <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    </p>
-                    <a href="about.html" class="learn-more-btn">Learn More</a>
+                    <p>The main purpose of this project is to develop an online education system for undergraduate university students where a learner can get self-directed and independent learning.</p>
+                    <!-- <a href="about.html" class="learn-more-btn">Learn More</a> -->
                 </div>
             </div>
 
@@ -86,13 +88,11 @@
                 <div class="col-lg-4 d-flex align-items-stretch">
                     <div class="content">
                         <h3>Why Choose Mentor?</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                            Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                        <p>The scope of this work is mainly designed for Computer Science Engineering’s or IT students where they can get educational supports. We have an intelligence support system to support our learners to select their courses as per their educational qualifications. 
                         </p>
-                        <div class="text-center">
+                        <!-- <div class="text-center">
                             <a href="about.html" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
@@ -101,22 +101,22 @@
                             <div class="col-xl-4 d-flex align-items-stretch">
                                 <div class="icon-box mt-4 mt-xl-0">
                                     <i class="bx bx-receipt"></i>
-                                    <h4>Corporis voluptates sit</h4>
-                                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                                    <h4>Open Source</h4>
+                                    <p>The term open source refers to something people can modify and share because its design is publicly accessible</p>
                                 </div>
                             </div>
                             <div class="col-xl-4 d-flex align-items-stretch">
                                 <div class="icon-box mt-4 mt-xl-0">
                                     <i class="bx bx-cube-alt"></i>
-                                    <h4>Ullamco laboris ladore pan</h4>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                                    <h4>Courses</h4>
+                                    <p>A course management system (CMS) is a collection of software tools providing an online environment for course interactions. </p>
                                 </div>
                             </div>
                             <div class="col-xl-4 d-flex align-items-stretch">
                                 <div class="icon-box mt-4 mt-xl-0">
                                     <i class="bx bx-images"></i>
-                                    <h4>Labore consequatur</h4>
-                                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                                    <h4>Q&A Portal</h4>
+                                    <p>Q&A software is online software that attempts to answer questions asked by users (Q&A stands for "question and answer")</p>
                                 </div>
                             </div>
                         </div>
@@ -302,9 +302,10 @@
 
         </div>
     </section><!-- End Popular Courses Section -->
+    
 
     <!-- ======= Trainers Section ======= -->
-    <section id="trainers" class="trainers">
+    <!-- <section id="trainers" class="trainers">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -373,7 +374,8 @@
             </div>
 
         </div>
-    </section><!-- End Trainers Section -->
+    </section> -->
+    <!-- End Trainers Section -->
 
 </main><!-- End #main -->
 
