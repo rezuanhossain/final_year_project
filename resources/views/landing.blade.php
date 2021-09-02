@@ -8,8 +8,8 @@
     <section id="hero" class="d-flex justify-content-center align-items-center">
         <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
             <h1>Learning Today,<br>Leading Tomorrow</h1>
-            <h2>We are team of talanted designers making websites with Bootstrap</h2>
-            <a href="courses.html" class="btn-get-started">Get Started</a>
+            <!-- <h2>We are team of talanted designers making websites with Bootstrap</h2>
+            <a href="courses.html" class="btn-get-started">Get Started</a> -->
         </div>
     </section><!-- End Hero -->
 
@@ -39,7 +39,7 @@ studies via the internet.
                         <li><i class="icofont-check-circled"></i> To create an open source educational community for university Students.</li>
                         <li><i class="icofont-check-circled"></i> To make an independent and self-directed learning.</li>
                         <li><i class="icofont-check-circled"></i> To make education much easier and closer to everybody.</li>
-                        <li><i class="icofont-check-circled"></i> To promote self-learning..</li>
+                        <li><i class="icofont-check-circled"></i> To promote self-learning.</li>
                     </ul>
                     <p>The main purpose of this project is to develop an online education system for undergraduate university students where a learner can get self-directed and independent learning.</p>
                     <!-- <a href="about.html" class="learn-more-btn">Learn More</a> -->
@@ -128,7 +128,7 @@ studies via the internet.
     </section><!-- End Why Us Section -->
 
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
+    <!-- <section id="features" class="features">
         <div class="container" data-aos="fade-up">
 
             <div class="row" data-aos="zoom-in" data-aos-delay="100">
@@ -207,7 +207,8 @@ studies via the internet.
             </div>
 
         </div>
-    </section><!-- End Features Section -->
+    </section> -->
+    <!-- End Features Section -->
 
     <!-- ======= Popular Courses Section ======= -->
     <section id="popular-courses" class="courses">
