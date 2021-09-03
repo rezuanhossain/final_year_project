@@ -51,8 +51,11 @@ export default {
         sub_categories: ""
     },
     data: () => ({
-        category_id:[],
         sub_categories:[],
+        category_id: "",
+        category: "",
+        sub_category: "",
+        sub_category_id: "",
     }),
     watch: {
         category: function(newCategory, oldCategory) {
@@ -61,7 +64,7 @@ export default {
     },
 
     created() {
-        
+        this.fetch_sub_category();
     },
 
     methods: {
@@ -76,17 +79,21 @@ export default {
         },
 
         processString(category) {
-            // let category_id = category.id;
-            // console.log(category_id);
+            this.category_id = parseInt(category.split(".", 1)[0]);
             axios
-                .get(`/get-selected-sub-categories/${category}`)
+                .get(`/get-selected-sub-categories/${this.category_id}`)
                 .then(res => {
-                    console.log(res.data);
                     this.sub_categories = res.data;
                 })
                 .catch(err => {
                     console.log(err);
                 });
+        },
+
+        fetch_sub_category() {
+            axios.get("/get-sub-category").then(res => {
+                this.fetchted_sub_category = res.data;
+            });
         },
 
     }

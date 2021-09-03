@@ -95,4 +95,11 @@ class InterestSurveyController extends Controller
         return response($data);
         
     }
+    public function fetched_sub($id){
+        $subCategories=SubCategory::all();
+     return response($subCategories);
+        
+    }
+
+    
 }

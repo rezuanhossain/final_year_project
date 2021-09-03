@@ -3992,8 +3992,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      category_id: [],
-      sub_categories: []
+      sub_categories: [],
+      category_id: "",
+      category: "",
+      sub_category: "",
+      sub_category_id: ""
     };
   },
   watch: {
@@ -4001,7 +4004,9 @@ __webpack_require__.r(__webpack_exports__);
       this.processString(newCategory);
     }
   },
-  created: function created() {},
+  created: function created() {
+    this.fetch_sub_category();
+  },
   methods: {
     getCategoryId: function getCategoryId(category) {
       if (!this.category_id.includes(category.id)) {
@@ -4014,13 +4019,18 @@ __webpack_require__.r(__webpack_exports__);
     processString: function processString(category) {
       var _this = this;
 
-      // let category_id = category.id;
-      // console.log(category_id);
-      axios.get("/get-selected-sub-categories/".concat(category)).then(function (res) {
-        console.log(res.data);
+      this.category_id = parseInt(category.split(".", 1)[0]);
+      axios.get("/get-selected-sub-categories/".concat(this.category_id)).then(function (res) {
         _this.sub_categories = res.data;
       })["catch"](function (err) {
         console.log(err);
+      });
+    },
+    fetch_sub_category: function fetch_sub_category() {
+      var _this2 = this;
+
+      axios.get("/get-sub-category").then(function (res) {
+        _this2.fetchted_sub_category = res.data;
       });
     }
   }
