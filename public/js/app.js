@@ -3985,6 +3985,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     categories: "",
@@ -4013,8 +4017,7 @@ __webpack_require__.r(__webpack_exports__);
         this.category_id.push(category.id);
       }
 
-      console.log(this.category_id);
-      this.processString(category_id);
+      console.log(this.category_id); // this.processString(category_id);
     },
     processString: function processString(category) {
       var _this = this;
@@ -64903,7 +64906,40 @@ var render = function() {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _c("div", { staticClass: "card" })
+    _c(
+      "div",
+      { staticClass: "card d-flex flex-row" },
+      _vm._l(_vm.categories, function(category, index) {
+        return _c(
+          "div",
+          {
+            key: index,
+            staticClass: "card-body",
+            on: {
+              click: function($event) {
+                return _vm.getCategoryId(category)
+              }
+            }
+          },
+          [
+            _c("h5", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(category.name))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _vm._v(
+                "With supporting text below as a natural lead-in to additional content."
+              )
+            ]),
+            _vm._v(" "),
+            _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+              _vm._v("Button")
+            ])
+          ]
+        )
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = [

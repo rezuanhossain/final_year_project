@@ -20,7 +20,7 @@ class InterestSurveyController extends Controller
         $sub_categories = SubCategory::all();
         // dd($sub_categories);
 
-        return view('survey.interestSurvey', compact('categories','sub_categories'));
+        return view('survey.interestSurvey', compact('categories'));
 
     }
 

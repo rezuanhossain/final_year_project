@@ -36,8 +36,12 @@
         </div>
         <hr>
 
-        <div class="card">
-
+            <div class="card d-flex flex-row">
+            <div class="card-body" @click="getCategoryId(category)" v-for="(category,index) in categories" :key="index">
+                <h5 class="card-title">{{category.name}}</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Button</a>
+            </div>
         </div>
     </div>
     
@@ -74,7 +78,7 @@ export default {
                 this.category_id.push(category.id);
             }
             console.log(this.category_id);
-            this.processString(category_id);
+            // this.processString(category_id);
 
         },
 
