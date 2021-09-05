@@ -3991,13 +3991,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    categories: "",
-    sub_categories: ""
+    categories: ""
   },
   data: function data() {
     return {
       sub_categories: [],
-      category_id: "",
+      category_id: [],
+      fetched_sub_category: [],
       category: "",
       sub_category: "",
       sub_category_id: ""
@@ -4022,7 +4022,8 @@ __webpack_require__.r(__webpack_exports__);
     processString: function processString(category) {
       var _this = this;
 
-      this.category_id = parseInt(category.split(".", 1)[0]);
+      console.log(category);
+      category_id = parseInt(category.split(".", 1)[0]);
       axios.get("/get-selected-sub-categories/".concat(this.category_id)).then(function (res) {
         _this.sub_categories = res.data;
       })["catch"](function (err) {
@@ -4033,7 +4034,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get("/get-sub-category").then(function (res) {
-        _this2.fetchted_sub_category = res.data;
+        console.log(res);
+        _this2.fetched_sub_category = res.data;
       });
     }
   }

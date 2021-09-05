@@ -91,12 +91,14 @@ class InterestSurveyController extends Controller
     }
 
     public function find_sub($id){
+        dd($id);
         $data=SubCategory::where('category_id',$id)->get();
         return response($data);
         
     }
-    public function fetched_sub($id){
+    public function fetched_sub_category(){
         $subCategories=SubCategory::all();
+        dd($subCategories);
      return response($subCategories);
         
     }

@@ -52,11 +52,11 @@
 export default {
     props: {
         categories: "",
-        sub_categories: ""
     },
     data: () => ({
         sub_categories:[],
-        category_id: "",
+        category_id: [],
+        fetched_sub_category: [],
         category: "",
         sub_category: "",
         sub_category_id: "",
@@ -83,7 +83,8 @@ export default {
         },
 
         processString(category) {
-            this.category_id = parseInt(category.split(".", 1)[0]);
+            console.log(category);
+            category_id = parseInt(category.split(".", 1)[0]);
             axios
                 .get(`/get-selected-sub-categories/${this.category_id}`)
                 .then(res => {
@@ -96,7 +97,8 @@ export default {
 
         fetch_sub_category() {
             axios.get("/get-sub-category").then(res => {
-                this.fetchted_sub_category = res.data;
+                console.log(res);
+                this.fetched_sub_category = res.data;
             });
         },
 
