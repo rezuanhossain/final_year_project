@@ -52,6 +52,7 @@
 export default {
     props: {
         categories: "",
+        sub_categories:""
     },
     data: () => ({
         sub_categories:[],
@@ -68,7 +69,7 @@ export default {
     },
 
     created() {
-        this.fetch_sub_category();
+        // this.fetch_sub_category();
     },
 
     methods: {
@@ -94,13 +95,14 @@ export default {
                     console.log(err);
                 });
         },
+        
 
-        fetch_sub_category() {
-            axios.get("/get-sub-category").then(res => {
-                console.log(res);
-                this.fetched_sub_category = res.data;
-            });
-        },
+        // fetch_sub_category() {
+        //     axios.get("/get-sub-category").then(res => {
+        //         console.log(res);
+        //         this.fetched_sub_category = res.data;
+        //     });
+        // },
 
     }
 };

@@ -3991,7 +3991,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    categories: ""
+    categories: "",
+    sub_categories: ""
   },
   data: function data() {
     return {
@@ -4008,8 +4009,7 @@ __webpack_require__.r(__webpack_exports__);
       this.processString(newCategory);
     }
   },
-  created: function created() {
-    this.fetch_sub_category();
+  created: function created() {// this.fetch_sub_category();
   },
   methods: {
     getCategoryId: function getCategoryId(category) {
@@ -4029,15 +4029,13 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
-    },
-    fetch_sub_category: function fetch_sub_category() {
-      var _this2 = this;
+    } // fetch_sub_category() {
+    //     axios.get("/get-sub-category").then(res => {
+    //         console.log(res);
+    //         this.fetched_sub_category = res.data;
+    //     });
+    // },
 
-      axios.get("/get-sub-category").then(function (res) {
-        console.log(res);
-        _this2.fetched_sub_category = res.data;
-      });
-    }
   }
 });
 
