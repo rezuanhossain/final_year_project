@@ -3996,7 +3996,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      sub_categories: [],
+      subCategories: [],
       category_id: [],
       fetched_sub_category: [],
       category: "",
@@ -4009,7 +4009,8 @@ __webpack_require__.r(__webpack_exports__);
       this.processString(newCategory);
     }
   },
-  created: function created() {// this.fetch_sub_category();
+  created: function created() {
+    this.fetch_sub_category_id();
   },
   methods: {
     getCategoryId: function getCategoryId(category) {
@@ -4018,17 +4019,31 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       console.log(this.category_id); // this.processString(category_id);
-    },
-    processString: function processString(category) {
-      var _this = this;
 
-      console.log(category);
-      category_id = parseInt(category.split(".", 1)[0]);
-      axios.get("/get-selected-sub-categories/".concat(this.category_id)).then(function (res) {
-        _this.sub_categories = res.data;
-      })["catch"](function (err) {
-        console.log(err);
+      getSubcategory(this.category_id);
+    },
+    fetch_sub_category_id: function fetch_sub_category_id() {
+      this.sub_categories.forEach(function (element) {
+        console.log(element.name);
       });
+    },
+    getSubcategory: function getSubcategory(id) {
+      if (this.category_id) {}
+    },
+    // processString(category) {
+    //     console.log(category);
+    //     category_id = parseInt(category.split(".", 1)[0]);
+    //     axios
+    //         .get(`/get-selected-sub-categories/${this.category_id}`)
+    //         .then(res => {
+    //             this.sub_categories = res.data;
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         });
+    // },
+    processString: function processString(category) {
+      console.log(category);
     } // fetch_sub_category() {
     //     axios.get("/get-sub-category").then(res => {
     //         console.log(res);

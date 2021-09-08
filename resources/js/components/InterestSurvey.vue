@@ -55,7 +55,7 @@ export default {
         sub_categories:""
     },
     data: () => ({
-        sub_categories:[],
+        subCategories:[],
         category_id: [],
         fetched_sub_category: [],
         category: "",
@@ -69,7 +69,7 @@ export default {
     },
 
     created() {
-        // this.fetch_sub_category();
+        this.fetch_sub_category_id();
     },
 
     methods: {
@@ -80,22 +80,39 @@ export default {
             }
             console.log(this.category_id);
             // this.processString(category_id);
+            getSubcategory(this.category_id);
 
         },
 
-        processString(category) {
+        fetch_sub_category_id(){
+            this.sub_categories.forEach(element => {
+                console.log(element.name);
+            });
+        },
+
+        getSubcategory(id){
+            if(this.category_id){
+
+            }
+        },
+
+        // processString(category) {
+        //     console.log(category);
+        //     category_id = parseInt(category.split(".", 1)[0]);
+        //     axios
+        //         .get(`/get-selected-sub-categories/${this.category_id}`)
+        //         .then(res => {
+        //             this.sub_categories = res.data;
+        //         })
+        //         .catch(err => {
+        //             console.log(err);
+        //         });
+        // },
+
+        processString(category){
             console.log(category);
-            category_id = parseInt(category.split(".", 1)[0]);
-            axios
-                .get(`/get-selected-sub-categories/${this.category_id}`)
-                .then(res => {
-                    this.sub_categories = res.data;
-                })
-                .catch(err => {
-                    console.log(err);
-                });
         },
-        
+
 
         // fetch_sub_category() {
         //     axios.get("/get-sub-category").then(res => {
