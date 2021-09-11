@@ -4000,7 +4000,7 @@ __webpack_require__.r(__webpack_exports__);
       category_id: [],
       fetched_sub_category: [],
       category: "",
-      sub_category: "",
+      sub_category: [],
       sub_category_id: ""
     };
   },
@@ -4016,20 +4016,34 @@ __webpack_require__.r(__webpack_exports__);
     getCategoryId: function getCategoryId(category) {
       if (!this.category_id.includes(category.id)) {
         this.category_id.push(category.id);
-      }
+      } // console.log(this.sub_category);
+      // this.processString(category_id);
 
-      console.log(this.category_id); // this.processString(category_id);
 
-      getSubcategory(this.category_id);
+      this.getSubcategory(this.category_id);
     },
     fetch_sub_category_id: function fetch_sub_category_id() {
+      var _this = this;
+
       this.sub_categories.forEach(function (element) {
         console.log(element.name);
+
+        _this.sub_category.push(element);
       });
     },
     getSubcategory: function getSubcategory(id) {
-      if (this.category_id) {}
+      console.log(id);
+      this.sub_category.forEach(function (element) {
+        if (element.category_id == id) {
+          var fetched = element.category_id;
+          console.log(fetched);
+        }
+      });
     },
+    // getSubcategory(id){
+    //     if(this.category_id == ){
+    //     }
+    // },
     // processString(category) {
     //     console.log(category);
     //     category_id = parseInt(category.split(".", 1)[0]);

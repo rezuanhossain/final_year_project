@@ -59,7 +59,7 @@ export default {
         category_id: [],
         fetched_sub_category: [],
         category: "",
-        sub_category: "",
+        sub_category:[],
         sub_category_id: "",
     }),
     watch: {
@@ -78,23 +78,35 @@ export default {
             if(!this.category_id.includes(category.id)){
                 this.category_id.push(category.id);
             }
-            console.log(this.category_id);
+            // console.log(this.sub_category);
             // this.processString(category_id);
-            getSubcategory(this.category_id);
+            this.getSubcategory(this.category_id);
 
         },
 
         fetch_sub_category_id(){
             this.sub_categories.forEach(element => {
                 console.log(element.name);
+                this.sub_category.push(element);
             });
         },
 
         getSubcategory(id){
-            if(this.category_id){
+            console.log(id);
+            this.sub_category.forEach(element=>{
+                if(element.category_id == id){
+                    let fetched = element.category_id;
+                    console.log(fetched);
+                }
 
-            }
+            });
         },
+
+        // getSubcategory(id){
+        //     if(this.category_id == ){
+
+        //     }
+        // },
 
         // processString(category) {
         //     console.log(category);
