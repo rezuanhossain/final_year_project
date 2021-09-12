@@ -4026,19 +4026,24 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.sub_categories.forEach(function (element) {
-        console.log(element.name);
-
+        // console.log(element.name);
         _this.sub_category.push(element);
       });
     },
     getSubcategory: function getSubcategory(id) {
-      console.log(id);
+      var _this2 = this;
+
+      console.log('cat id :', id);
       this.sub_category.forEach(function (element) {
         if (element.category_id == id) {
-          var fetched = element.category_id;
-          console.log(fetched);
+          if (!_this2.fetched_sub_category.includes(element.id)) {
+            console.log(element.id);
+
+            _this2.fetched_sub_category.push(element.id);
+          }
         }
       });
+      console.log(this.fetched_sub_category);
     },
     // getSubcategory(id){
     //     if(this.category_id == ){

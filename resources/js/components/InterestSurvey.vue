@@ -86,20 +86,24 @@ export default {
 
         fetch_sub_category_id(){
             this.sub_categories.forEach(element => {
-                console.log(element.name);
+                // console.log(element.name);
                 this.sub_category.push(element);
             });
         },
 
         getSubcategory(id){
-            console.log(id);
+            console.log('cat id :',id);
             this.sub_category.forEach(element=>{
                 if(element.category_id == id){
-                    let fetched = element.category_id;
-                    console.log(fetched);
+                    if(!this.fetched_sub_category.includes(element.id)){
+                        console.log(element.id);
+                        this.fetched_sub_category.push(element.id);
+                    }
                 }
 
             });
+                console.log(this.fetched_sub_category);
+
         },
 
         // getSubcategory(id){
