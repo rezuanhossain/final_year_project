@@ -124,4 +124,10 @@ class BlogPostController extends Controller
 
         return response(['message' => 'Post updated Successfully']);
     }
+    public function show_blogs(){
+        $blogs = BlogPost::all();
+        // dd($blogs);
+        return view('Blogs.showBlogs', compact('blogs'));
+
+    }
 }

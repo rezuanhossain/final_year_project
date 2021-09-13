@@ -43,6 +43,7 @@ Route::middleware(['verified'])->group(function () {
     Route::post('/edit-post', 'BlogPostController@edit_post')->name('blogpost.edit');
     Route::post('/update-post', 'BlogPostController@update_post')->name('blogpost.update');
     Route::get('/fetch-tags', 'BlogPostController@index')->name('tags.fetch');
+    Route::get('/show-blogs', 'BlogPostController@show_blogs')->name('show.blogs');
 });
 
 // Blog Tags
