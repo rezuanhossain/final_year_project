@@ -234,7 +234,7 @@ studies via the internet.
                             <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                             <div class="trainer d-flex justify-content-between align-items-center">
                                 <div class="trainer-profile d-flex align-items-center">
-                                    <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                                    <img src="assets/img/trainers/trainer.jpg" class="img-fluid" alt="">
                                     <span>Antonio</span>
                                 </div>
                                 <div class="trainer-rank d-flex align-items-center">
@@ -260,7 +260,7 @@ studies via the internet.
                             <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                             <div class="trainer d-flex justify-content-between align-items-center">
                                 <div class="trainer-profile d-flex align-items-center">
-                                    <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+                                    <img src="assets/img/trainers/trainer.jpg" class="img-fluid" alt="">
                                     <span>Lana</span>
                                 </div>
                                 <div class="trainer-rank d-flex align-items-center">
@@ -286,7 +286,7 @@ studies via the internet.
                             <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                             <div class="trainer d-flex justify-content-between align-items-center">
                                 <div class="trainer-profile d-flex align-items-center">
-                                    <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+                                    <img src="assets/img/trainers/trainer.jpg" class="img-fluid" alt="">
                                     <span>Brandon</span>
                                 </div>
                                 <div class="trainer-rank d-flex align-items-center">

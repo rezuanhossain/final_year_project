@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Mentor Bootstrap Template - Index</title>
+    <title>Mentor</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -51,10 +51,10 @@
                 <li class="active"><a href="index.html">Home</a></li>
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ route('courses') }}">Courses</a></li>
-                <li><a href="trainers.html">Trainers</a></li>
-                <li><a href="events.html">Events</a></li>
+                <!-- <li><a href="trainers.html">Trainers</a></li> -->
+                <li><a href="{{route ('question.list')}}">QnA</a></li>
                 <li><a href="{{ route('show.blogs') }}">Blogs</a></li>
-                <li class="drop-down"><a href="">Drop Down</a>
+                <!-- <li class="drop-down"><a href="">Drop Down</a>
                     <ul>
                         <li><a href="#">Drop Down 1</a></li>
                         <li class="drop-down"><a href="#">Deep Drop Down</a>
@@ -70,13 +70,13 @@
                         <li><a href="#">Drop Down 3</a></li>
                         <li><a href="#">Drop Down 4</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li><a href="contact.html">Contact</a></li>
 
             </ul>
         </nav><!-- .nav-menu -->
 
-        <a href="courses.html" class="get-started-btn">Get Started</a>
+        <a href="{{ route('courses') }}" class="get-started-btn">Get Started</a>
 
     </div>
 </header><!-- End Header -->

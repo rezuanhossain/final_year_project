@@ -12,7 +12,7 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
 
-  <title>spreadKnowledge</title>
+  <title>Mentor</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset("vendor/fontawesome-free/css/all.min.css") }}" rel="stylesheet" type="text/css">
@@ -37,7 +37,7 @@
         <div class="sidebar-brand-icon">
           <i class="fas fa-user"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Contibutor's Dashboard</div>
+        <div class="sidebar-brand-text mx-3">Student's Dashboard</div>
       </a>
 
       <!-- Divider -->
