@@ -71,7 +71,18 @@
                         <li><a href="#">Drop Down 4</a></li>
                     </ul>
                 </li> -->
-                <li><a href="contact.html">Contact</a></li>
+
+                @if(Auth::check())
+                    @if(auth()->user()->type == 'student')
+                    
+                    <li><a href="{{ route('student.dashboard') }}">Dashboard</a></li>
+                    @elseif(auth()->user()->type == 'contributor')
+                    <li><a href="{{ route('contributor_dashboard') }}">Dashboard</a></li>
+                    @endif
+                @else
+                <li><a href="{{ url('/login') }}">Login</a></li>
+                @endif
+                
 
             </ul>
         </nav><!-- .nav-menu -->
