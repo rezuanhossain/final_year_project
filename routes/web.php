@@ -44,6 +44,8 @@ Route::middleware(['verified'])->group(function () {
     Route::post('/update-post', 'BlogPostController@update_post')->name('blogpost.update');
     Route::get('/fetch-tags', 'BlogPostController@index')->name('tags.fetch');
     Route::get('/show-blogs', 'BlogPostController@show_blogs')->name('show.blogs');
+    Route::get('/show-blogs/{id}', 'BlogPostController@show_blog')->name('show.blog');
+
 });
 
 // Blog Tags
