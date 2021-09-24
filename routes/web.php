@@ -78,6 +78,7 @@ Route::middleware(['verified'])->group(function () {
     Route::get('/get-course-lessons', 'CourseLessonController@find_lessons')->name('get-course-lessons');
     Route::get('/get-selected-course-lessons/{id}', 'CourseLessonController@selected_lessons')->name('get-selected-course-lessons');
     Route::get('/course-list/{id}', 'CourseController@course_list')->name('course.list');
+    Route::get('/course-details/{id}', 'CourseController@course_details')->name('course.details');
     //lessons route
     Route::get('/course_lessons/{id}', 'CourseLessonController@view_lessons')->name('lesson.list');
     Route::delete('/courseLessons/{courseLesson}', 'CourseLessonController@destroy')->name('lesson.delete');
@@ -134,7 +135,7 @@ Route::middleware(['verified'])->group(function () {
 
 
 // precedures
-Route::middleware(['verified', 'admin'])->group(function () {
+Route::middleware(['verified'])->group(function () {
 
     Route::get('/admin-dashboard', 'AdminProfileController@index')->name('admin.dashboard');
     Route::get('/admin-procedure', 'AdminProfileController@suggestionprocedure')->name('admin.procedure');
@@ -160,6 +161,9 @@ route::get('/create-survey-question', 'InterestSurveyController@create_question'
 route::post('/store-survey-question', 'SurveyQuestionController@store')->name('store.surveyquestion');
 route::get('/interest-survey', 'SurveyQuestionController@index')->name("survey");
 route::post('/survey-question-options', 'SurveyQuestionController@get_options');
+route::post('/survey-question-reply', 'SurveyQuestionController@save_result');
+
+
 
 
 Route::get('/get-selected-sub-categories/{id}', 'InterestSurveyController@find_sub')->name('find.fetch_sub_category');

@@ -226,11 +226,11 @@ studies via the internet.
                         <img src="{{ asset($item->image) }}" class="img-fluid" alt="..." style="height: 15rem!important;width:100%;">
                         <div class="course-content">
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4>{{ $item->course_title }}</h4>
+                                <h4><a href="{{route('course.details',[$item->id])}}">{{ $item->course_title }}</a></h4>
                                 <p class="price">{{ $item->course_level }}</p>
                             </div>
 
-                            <h3><a href="course-details.html">{{ $item->course_title }}</a></h3>
+                            <h3><a href="{{route('course.details',[$item->id])}}">{{ $item->course_title }}</a></h3>
                             <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                             <div class="trainer d-flex justify-content-between align-items-center">
                                 <div class="trainer-profile d-flex align-items-center">
@@ -252,7 +252,50 @@ studies via the internet.
 
         </div>
     </section><!-- End Popular Courses Section -->
-    
+
+    @if(count($survery_courses)>0)
+    <section id="popular-courses" class="courses">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Recommendation</h2>
+                <p>Recommended Courses Based on Your Survey</p>
+            </div>
+
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                @foreach($survery_courses as $item)
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="course-item">
+                        <img src="{{ asset($item->image) }}" class="img-fluid" alt="..." style="height: 15rem!important;width:100%;">
+                        <div class="course-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>{{ $item->course_title }}</h4>
+                                <p class="price">{{ $item->course_level }}</p>
+                            </div>
+
+                            <h3><a href="{{route('course.details',[$item->id])}}">{{ $item->course_title }}</a></h3>
+                            <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                            <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                    <img src="assets/img/trainers/trainer.jpg" class="img-fluid" alt="">
+                                    <span></span>
+                                </div>
+                                <div class="trainer-rank d-flex align-items-center">
+                                    <i class="bx bx-user"></i>&nbsp;{{ $item->student_count }}
+                                    &nbsp;&nbsp;
+                                    <i class="bx bx-grid"></i>&nbsp;{{ $item->lessons->count() }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach<!-- End Course Item-->
+
+            </div>
+
+        </div>
+    </section>
+    @endif
 
     <!-- ======= Trainers Section ======= -->
     <!-- <section id="trainers" class="trainers">

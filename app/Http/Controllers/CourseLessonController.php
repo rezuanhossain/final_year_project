@@ -116,7 +116,8 @@ class CourseLessonController extends Controller
         $lesson = CourseLesson::findOrFail($request->id);
         $lesson->update([
             'lesson_body' => $request->lesson_body,
-            'lesson_title' => $request->lesson_title
+            'lesson_title' => $request->lesson_title,
+            'link' => $request->link,
         ]);
         return response(['message' => 'Lesson Upadted Successfully...!! ']);
     }
@@ -133,7 +134,8 @@ class CourseLessonController extends Controller
         // dd($id);
         $lesson = CourseLesson::findOrFail($id);
         $lesson_body = $lesson->lesson_body;
-        return response(['lesson_body' => $lesson_body]);
+        $link = $lesson->link;
+        return response(['lesson_body' => $lesson_body,'link'=>$link]);
     }
 
     public function create_course_lesson($id)

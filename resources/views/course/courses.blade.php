@@ -26,13 +26,13 @@
                         
                         </div>
         
-                        <h3><a href="course-details.html">{{ $item->course_title }}</a></h3>
-                        <p>Et architecto provident deleniti facere repellat nobis iste</p>
+                        <h3><a href="{{route('course.details',[$item->id])}}">{{ $item->course_title }}</a></h3>
+                        <!-- <p>Et architecto provident deleniti facere repellat nobis iste</p> -->
                         
                         <div class="trainer d-flex justify-content-between align-items-center">
                         <div class="trainer-profile d-flex align-items-center">
-                            <img src="assets/img/trainers/trainer.jpg" class="img-fluid" alt="">
-                            <span>Admin</span>
+                        <a href="{{route('course.details',[$item->id])}}" class="btn btn-secondary ml-4">Details</a>
+
                         </div>
                         <div class="trainer-rank d-flex align-items-center">
                             <i class="bx bx-user"></i>{{ $item->student_count }} {{ Str::plural('student', 1) }}

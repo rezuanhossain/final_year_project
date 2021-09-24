@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\User;
 use App\Category;
 use App\CourseProgressReport;
 use App\SubCategory;
@@ -30,6 +31,7 @@ class CourseController extends Controller
     }
     public function all_courses()
     {
+        
         $courses = Course::paginate(6);
         return view('course.courses', compact('courses'));
     }
@@ -81,6 +83,7 @@ class CourseController extends Controller
             'course_id' => $request->course_id,
             'lesson_title' => $request->topic_title,
             'lesson_body' => $request->topic_body,
+            'link' => $request->video_link,
         ]);
         return response(['message' => "Course Topic Created Successfully.."]);
     }
@@ -167,7 +170,13 @@ class CourseController extends Controller
     }
     public function course_list($id)
     {
-        $courses = Course::where('contributor_id', $id)->paginate(5);
+        if(auth()->user()->type='admin'){
+            $courses = Course::paginate(5);
+
+        }else{
+
+            $courses = Course::where('contributor_id', $id)->paginate(5);
+        }
 
         return view('course.allCoursesView', compact('courses'));
     }
@@ -295,5 +304,14 @@ class CourseController extends Controller
         }
 
         return view('student.course_performance', compact('progress_report', 'courses_models'));
+    }
+
+    public function course_details($course_id){
+        $contributor_id = Course::where('id',$course_id)->pluck('contributor_id');
+        $contributor = User::where('id',$contributor_id)->pluck('name');
+        // dd($contributor);
+        $course=Course::findOrFail($course_id);
+        // dd($course);
+        return view('course.singleCourse',compact('course','contributor'));
     }
 }

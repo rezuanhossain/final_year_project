@@ -2884,6 +2884,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [{}],
   created: function created() {
@@ -2903,6 +2908,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       fetched_lessons: "",
       course_lessons: [],
       course_name: "",
+      video_link: "",
       options: (_options = {
         closeMethod: 'fadeOut',
         closeDuration: 300,
@@ -2920,11 +2926,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         formData.append('course_id', this.course_id);
         formData.append('topic_title', this.title);
         formData.append('topic_body', this.content);
+        formData.append('video_link', this.video_link);
         axios.post('/create-course-lesson', formData).then(function (res) {
           _this.showLessons();
 
           _this.title = "";
           _this.content = "";
+          _this.video_link = "";
 
           _this.$alert(res.data.message, "", "success");
 
@@ -3924,6 +3932,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     lesson: {
@@ -3933,6 +3946,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.content = this.lesson.lesson_body;
     this.title = this.lesson.lesson_title;
+    this.link = this.lesson.link;
     this.id = this.lesson.id;
     this.course_id = this.lesson.course_id;
   },
@@ -3941,6 +3955,7 @@ __webpack_require__.r(__webpack_exports__);
       content: "",
       title: "",
       id: "",
+      link: "",
       course_id: "",
       url: "/course_lessons/",
       hide: false
@@ -3953,6 +3968,7 @@ __webpack_require__.r(__webpack_exports__);
       var formData = new FormData();
       formData.append('lesson_body', this.content);
       formData.append('lesson_title', this.title);
+      formData.append('link', this.link);
       formData.append('id', this.id);
       axios.post('/update-lesson', formData, {
         headers: {
@@ -4193,6 +4209,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     selected_course_lessons: {
@@ -4204,6 +4231,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       lessons: [],
       lesson_body: "",
+      link: "",
       count: 0,
       old: 0,
       "new": null,
@@ -4253,6 +4281,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 axios.get("/lesson/".concat(pid, "/body")).then(function (res) {
                   _this.lesson_body = res.data.lesson_body;
+                  _this.link = res.data.link;
                   _this.count++;
                 })["catch"](function (err) {
                   return console.log(err);
@@ -4461,12 +4490,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     question: null
   },
   data: function data() {
     return {
+      "var": "",
       ques: "",
       type: "",
       options: [],
@@ -4476,6 +4509,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.ques = this.$props.question.question_body;
     this.type = this.$props.question.type;
+    this["var"] = this.$props.question.type;
     this.getOptions();
   },
   mounted: function mounted() {//    this.fill_arr();
@@ -4486,6 +4520,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var formData = new FormData();
       formData.append('type', this.type);
+      formData.append('var', this["var"]);
       axios.post("/survey-question-options", formData).then(function (res) {
         _this.options = res.data.cats;
         _this.type = "subcat";
@@ -4496,9 +4531,16 @@ __webpack_require__.r(__webpack_exports__);
 
       var formData = new FormData();
       formData.append('type', this.type);
+      formData.append('var', this["var"]);
+      formData.append('picked', this.picked);
       axios.post("/survey-question-options", formData).then(function (res) {
+        if (res.data.message == "redirect") {
+          location.replace("/");
+        }
+
         _this2.options = res.data.sub_cats;
         _this2.ques = res.data.question.question_body;
+        _this2["var"] = "subcat"; // console.log(res.data.message);
 
         _this2.$alert(res.data.message, "", "success");
       });
@@ -11190,7 +11232,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "ul {\n  list-style: none;\n  padding: 0px;\n}\nli {\n  list-style: none;\n  border-radius: 10px;\n}\n.body {\n  border-left: 1px solid #cfc8c8;\n}\n.active-class {\n  background-color: #554e4e;\n  color: aliceblue;\n  border-radius: 10px;\n}\n.modal {\n  display: block;\n  height: 100vh;\n  width: 100vw;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: rgba(0, 0, 0, 0.404);\n}\n.rating {\n  display: block;\n  background-color: white;\n  padding: 5rem;\n  padding-top: 4rem;\n  padding-bottom: 2rem;\n}\n.stars {\n  margin-left: 25%;\n}", ""]);
+exports.push([module.i, "ul {\n  list-style: none;\n  padding: 0px;\n}\nli {\n  list-style: none;\n  border-radius: 10px;\n}\n.body {\n  border-left: 1px solid #cfc8c8;\n}\n.active-class {\n  background-color: #554e4e;\n  color: aliceblue;\n  border-radius: 10px;\n}\n.modal {\n  display: block;\n  height: 100vh;\n  width: 100vw;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: rgba(0, 0, 0, 0.404);\n}\n.rating {\n  display: block;\n  background-color: white;\n  padding: 5rem;\n  padding-top: 4rem;\n  padding-bottom: 2rem;\n}\n.stars {\n  margin-left: 25%;\n}\n.frame > iframe {\n  width: 100% !important;\n}", ""]);
 
 // exports
 
@@ -63475,6 +63517,40 @@ var render = function() {
               1
             ),
             _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "topicTitle" } }, [
+                _vm._v("Lesson Video")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.video_link,
+                    expression: "video_link"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "video_link",
+                  "aria-describedby": "emailHelp",
+                  placeholder: "Video Link",
+                  required: ""
+                },
+                domProps: { value: _vm.video_link },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.video_link = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
             _vm._m(0)
           ]
         )
@@ -65079,6 +65155,40 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "topicTitle" } }, [
+                  _vm._v("Lesson Video")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.link,
+                      expression: "link"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "video_link",
+                    "aria-describedby": "emailHelp",
+                    placeholder: "Video Link",
+                    required: ""
+                  },
+                  domProps: { value: _vm.link },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.link = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
               _vm._m(0)
             ]
           )
@@ -65400,7 +65510,7 @@ var render = function() {
       2
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "col-md-6" }, [
+    _c("div", { staticClass: "col-md-8" }, [
       _c(
         "div",
         {
@@ -65411,10 +65521,30 @@ var render = function() {
           _vm._v(
             "\r\n                " +
               _vm._s(_vm.lesson_body) +
-              "\r\n            "
+              "\r\n            \r\n            "
           )
         ]
       ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "d-flex justify-content-center align-items-center frame",
+              domProps: { innerHTML: _vm._s(_vm.link) }
+            },
+            [
+              _vm._v(
+                "\r\n                        " +
+                  _vm._s(_vm.link) +
+                  "\r\n                         "
+              )
+            ]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _vm.modal
         ? _c("div", { staticClass: "modal" }, [
@@ -65455,7 +65585,7 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "col-md-3" })
+    _c("div", { staticClass: "col-md-2" })
   ])
 }
 var staticRenderFns = []
@@ -65638,63 +65768,89 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _vm._v("\n                " + _vm._s(this.ques) + "\n            ")
-        ]),
-        _vm._v(" "),
+      _c("div", { staticClass: "col-10" }, [
         _c(
           "div",
-          { staticClass: "card-body" },
-          _vm._l(_vm.options, function(option, index) {
-            return _c("div", { key: index, staticClass: "card-text" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.picked,
-                    expression: "picked"
-                  }
-                ],
-                attrs: { type: "radio" },
-                domProps: {
-                  value: option.id,
-                  checked: _vm._q(_vm.picked, option.id)
-                },
-                on: {
-                  change: function($event) {
-                    _vm.picked = option.id
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", [_vm._v(" " + _vm._s(option.name))])
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-footer " }, [
-          _c(
-            "div",
-            { staticClass: "d-flex justify-content-end align-items-center" },
-            [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  on: {
-                    click: function($event) {
-                      return _vm.submit_answer()
-                    }
-                  }
-                },
-                [_vm._v("\n                Submit\n                ")]
-              )
-            ]
-          )
-        ])
+          {
+            staticClass:
+              "d-flex justify-content-center align-items-center my-4 py-4"
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "card", staticStyle: { width: "30rem" } },
+              [
+                _c("div", { staticClass: "card-header" }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(this.ques) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "card-body" },
+                  _vm._l(_vm.options, function(option, index) {
+                    return _c("div", { key: index, staticClass: "card-text" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.picked,
+                            expression: "picked"
+                          }
+                        ],
+                        attrs: { type: "radio" },
+                        domProps: {
+                          value: option.id,
+                          checked: _vm._q(_vm.picked, option.id)
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.picked = option.id
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [_vm._v(" " + _vm._s(option.name))])
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-footer " }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex justify-content-end align-items-center"
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.submit_answer()
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Submit\n                            "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        )
       ])
     ])
   ])

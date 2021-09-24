@@ -6,6 +6,9 @@ use App\SurveyQuestion;
 use App\Category;
 use App\SubCategory;
 use Illuminate\Http\Request;
+use Auth;
+
+use function PHPSTORM_META\type;
 
 class SurveyQuestionController extends Controller
 {
@@ -21,6 +24,26 @@ class SurveyQuestionController extends Controller
         return view('survey.interestSurvey', compact('question'));
     }
     public function get_options(Request $request){
+        
+        if($request->picked && $request->picked!=""){
+            $user=Auth::user();
+            $picks=[];
+            array_push($picks,$request->var.'-'.$request->picked);
+            if($user->survey_result != null){
+                $res=array_merge($user->survey_result,$picks);
+                
+                $user->update([
+                    "survey_result"=>$res,
+                    "survey_taken"=>1
+                ]);
+            }else{
+                $user->update([
+                    "survey_result"=>$picks,
+                    "survey_taken"=>1
+                ]);
+            }
+           
+        }
        if($request->type !=="cat"){
             $question=SurveyQuestion::where('type',$request->type)->first();
        }
@@ -29,11 +52,17 @@ class SurveyQuestionController extends Controller
             return response(['cats' => $cats]);
             
 
-        }elseif($request->type=="subcat"){
-            $sub_cats=SubCategory::all();
-            return response(['message'=>"Your Feedback Stored Successfully..!!",'sub_cats' => $sub_cats,'question'=>$question]);
-        }else{
+        }elseif($request->type=="subcat" && $request->picked){
+            $sub_cats=SubCategory::where("category_id",$request->picked)->get();
+            if(!count($sub_cats)>0){ 
+            return response(['message'=>"redirect"]);
 
+            }else{
+            return response(['message'=>"Your Feedback Stored Successfully..!!",'sub_cats' => $sub_cats,'question'=>$question]);
+                
+            }
+        }else{
+           
         }
     }
 
