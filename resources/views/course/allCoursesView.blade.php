@@ -17,7 +17,7 @@
           <h5 class="card-title">{{ $item->course_title }}</h5>
           <p class="card-text"><span class="fas fa-user-edit text-black-50" style="padding:5px;" ></span><small> {{ $item->course_level }}</small>
             @if(auth()->user()->type == 'contributor')
-            <span class="fas fa-book-reader text-black-50" style="padding:5px;" ></span><small>{{ $item->student_count }} {{ Str::plural('student', 1) }}</small>
+            <span class="fas fa-book-reader text-black-50" style="padding:5px;" ></span><small>{{ $item->student_count }} {{ Str::plural('Students', 1) }}</small>
             @endif
 
         </p>

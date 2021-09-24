@@ -102,6 +102,10 @@ class InterestSurveyController extends Controller
      return response($subCategories);
         
     }
+    public function create_question(){
+        $type = 'category';
+        return view('survey.createSurveyQuestion');
+    }
 
     
 }

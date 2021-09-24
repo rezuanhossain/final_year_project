@@ -35,6 +35,8 @@ Route::get('/logout', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Blog Portal
+Route::get('/show-blogs', 'BlogPostController@show_blogs')->name('show.blogs');
+
 Route::middleware(['verified'])->group(function () {
     Route::get('/create-post', 'BlogPostController@create')->name('blogpost.create');
     Route::post('/create-post', 'BlogPostController@store')->name('store-post');
@@ -43,7 +45,6 @@ Route::middleware(['verified'])->group(function () {
     Route::post('/edit-post', 'BlogPostController@edit_post')->name('blogpost.edit');
     Route::post('/update-post', 'BlogPostController@update_post')->name('blogpost.update');
     Route::get('/fetch-tags', 'BlogPostController@index')->name('tags.fetch');
-    Route::get('/show-blogs', 'BlogPostController@show_blogs')->name('show.blogs');
     Route::get('/show-blogs/{id}', 'BlogPostController@show_blog')->name('show.blog');
 
 });
@@ -155,9 +156,11 @@ Route::get('/courses', 'CourseController@index')->name('courses.view');
 Route::get('/course-enroll/{course_id}', 'StudentProfileController@enroll_course')->name('course.enroll');
 
 //Student Interest Survey 
+route::get('/create-survey-question', 'InterestSurveyController@create_question')->name('create.surveyquestion');
+route::post('/store-survey-question', 'SurveyQuestionController@store')->name('store.surveyquestion');
+route::get('/interest-survey', 'SurveyQuestionController@index')->name("survey");
+route::post('/survey-question-options', 'SurveyQuestionController@get_options');
 
-route::get('/interest-survey', 'InterestSurveyController@index');
-route::get('/get-', 'InterestSurveyController@index');
+
 Route::get('/get-selected-sub-categories/{id}', 'InterestSurveyController@find_sub')->name('find.fetch_sub_category');
 Route::get('/get-sub-category', 'InterestSurveyController@fetched_sub_category')->name('fetched_sub_category');
-

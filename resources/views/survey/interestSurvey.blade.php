@@ -1,7 +1,5 @@
-@extends('layouts.empty')
+@extends('layouts.app')
 
-<div class="container">
-    <div id="app1">
-        <interest-survey :sub_categories="{{$sub_categories}}" :categories="{{ $categories }}"></interest-survey>
-    </div>
-</div>
+@section('content')
+        <survey-question :question="{{$question}}"></survey-question>
+@endsection

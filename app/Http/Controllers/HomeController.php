@@ -41,7 +41,7 @@ class HomeController extends Controller
     }
     public function landing()
     {
-        $top_courses = Course::orderBy('student_count', 'DESC')->take(10)->get();
+        $top_courses = Course::orderBy('student_count', 'DESC')->take(3)->get();
         return view('landing', compact('top_courses'));
     }
 }

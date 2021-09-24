@@ -99,6 +99,31 @@
 
 
 
+@if(Auth::check())
+    @if(auth()->user()->survey_taken == 0)
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Survey For Recomendation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <h4 class="text text-center ">  Do You Want To Take The Survey ?</h4>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+            <a href="{{route('survey')}}" class="btn btn-primary">Yes</a>
+        </div>
+        </div>
+    </div>
+    </div>
+    @endif
+@endif
 <!-- ======= Footer ======= -->
 <footer id="footer">
 
@@ -178,17 +203,24 @@
 <div id="preloader"></div>
 
 <!-- Vendor JS Files -->
-<script src={{asset("assets/vendor/jquery/jquery.min.js")}}></script>
-<script src={{asset("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")}}></script>
-<script src={{asset("assets/vendor/jquery.easing/jquery.easing.min.js")}}></script>
-<script src={{asset("assets/vendor/php-email-form/validate.js")}}></script>
-<script src={{asset("assets/vendor/waypoints/jquery.waypoints.min.js")}}></script>
-<script src={{asset("assets/vendor/counterup/counterup.min.js")}}></script>
-<script src={{asset("assets/vendor/owl.carousel/owl.carousel.min.js")}}></script>
-<script src={{asset("assets/vendor/aos/aos.js")}}></script>
-
+<script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+<script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
+<script src="{{asset('assets/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('assets/vendor/counterup/counterup.min.js')}}"></script>
+<script src="{{asset('assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
+<script>
+    $(document).ready(function() {
+        setTimeout(function(){ 
+            $('#exampleModal').modal('show');
+        }, 3000);
+    })
+  
+</script>
 <!-- Template Main JS File -->
-<script src={{asset("assets/js/main.js")}}></script>
+<script src="{{asset('assets/js/main.js')}}"></script>
 
 </body>
 
