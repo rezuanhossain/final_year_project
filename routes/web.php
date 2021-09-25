@@ -166,5 +166,5 @@ route::post('/survey-question-reply', 'SurveyQuestionController@save_result');
 
 
 
-Route::get('/get-selected-sub-categories/{id}', 'InterestSurveyController@find_sub')->name('find.fetch_sub_category');
+// Route::get('/get-selected-sub-categories/{id}', 'InterestSurveyController@find_sub')->name('find.fetch_sub_category');
 Route::get('/get-sub-category', 'InterestSurveyController@fetched_sub_category')->name('fetched_sub_category');
